@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Portfolio PPG</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    background: #2c3e50;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #1abc9c;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(to right, #1abc9c, #3498db);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3em;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero p {
+    margin-top: 10px;
+}
+
+/* SECTION */
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 280px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* GALERI */
+.gallery img {
+    width: 250px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #1abc9c;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* ANIMATION */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .card {
+        width: 90%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">Tentang</a>
+    <a href="#artefak">Artefak</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#kontak">Kontak</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="home">
+    <div>
+        <h1>Nama Anda</h1>
+        <p>E-Portfolio PPG</p>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="hidden">
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah peserta PPG yang memiliki semangat tinggi dalam dunia pendidikan...</p>
+</section>
+
+<!-- ARTEFAK -->
+<section id="artefak" class="hidden">
+    <h2>Artefak</h2>
+
+    <div class="card">
+        <h3>Modul Ajar</h3>
+        <p>Deskripsi modul ajar</p>
+        <a href="#" class="btn">Lihat</a>
+    </div>
+
+    <div class="card">
+        <h3>Media Pembelajaran</h3>
+        <p>Deskripsi media</p>
+        <a href="#" class="btn">Lihat</a>
+    </div>
+
+</section>
+
+<!-- GALERI -->
+<section id="galeri" class="gallery hidden">
+    <h2>Galeri</h2>
+    <img src="https://via.placeholder.com/250">
+    <img src="https://via.placeholder.com/250">
+</section>
+
+<!-- KONTAK -->
+<section id="kontak" class="hidden">
+    <h2>Kontak</h2>
+    <p>Email: email@gmail.com</p>
+    <a href="https://wa.me/628xxxxxxxxxx" class="btn">Hubungi WhatsApp</a>
+</section>
+
+<!-- SCRIPT ANIMASI -->
+<script>
+const hiddenElements = document.querySelectorAll('.hidden');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+hiddenElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
