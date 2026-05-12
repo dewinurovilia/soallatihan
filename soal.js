@@ -16,15 +16,6 @@ const questions = [
     opsiC: "Medan",
     opsiD: "Surabaya",
     jawaban: "B"
-  },
-
-  {
-    soal: "Planet terbesar adalah ...",
-    opsiA: "Mars",
-    opsiB: "Venus",
-    opsiC: "Jupiter",
-    opsiD: "Bumi",
-    jawaban: "C"
   }
 
 ];
