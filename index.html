@@ -34,9 +34,11 @@ button{
     background:#2563eb;
     color:white;
     border:none;
-    padding:10px 20px;
+    padding:12px 20px;
     border-radius:8px;
     cursor:pointer;
+    width:100%;
+    font-size:16px;
 }
 
 button:hover{
@@ -72,6 +74,7 @@ input{
     margin-bottom:15px;
     border-radius:8px;
     border:1px solid #ccc;
+    box-sizing:border-box;
 }
 
 </style>
@@ -79,7 +82,7 @@ input{
 
 <body>
 
-<div id="timer">00:00</div>
+<div id="timer">30:00</div>
 
 <div class="container">
 
@@ -91,7 +94,7 @@ input{
 
 <input type="text" id="kelas" placeholder="Kelas">
 
-<button onclick="startExam()">Mulai Ujian</button>
+<button id="startBtn">Mulai Ujian</button>
 
 </div>
 
@@ -109,6 +112,7 @@ input{
 
 </div>
 
+<!-- LOAD FILE SOAL -->
 <script src="soal.js"></script>
 
 <script>
@@ -116,20 +120,39 @@ input{
 let duration = 30 * 60;
 let timerInterval;
 
+// CEK FILE SOAL
+if(typeof questions === "undefined"){
+
+    alert("File soal.js tidak terbaca!");
+
+}
+
+// TOMBOL START
+document
+.getElementById("startBtn")
+.addEventListener("click", startExam);
+
 // MULAI UJIAN
 function startExam(){
 
-    const nama = document.getElementById("nama").value;
-    const kelas = document.getElementById("kelas").value;
+    const nama =
+        document.getElementById("nama").value;
 
-    if(nama == "" || kelas == ""){
+    const kelas =
+        document.getElementById("kelas").value;
+
+    if(nama === "" || kelas === ""){
+
         alert("Nama dan kelas wajib diisi");
+
         return;
+
     }
 
     questions = shuffleArray(questions);
 
     document.getElementById("loginPage").style.display = "none";
+
     document.getElementById("examPage").style.display = "block";
 
     loadQuiz();
@@ -145,7 +168,8 @@ function shuffleArray(array){
 
         const j = Math.floor(Math.random() * (i + 1));
 
-        [array[i], array[j]] = [array[j], array[i]];
+        [array[i], array[j]] =
+        [array[j], array[i]];
 
     }
 
@@ -153,10 +177,11 @@ function shuffleArray(array){
 
 }
 
-// LOAD SOAL
+// LOAD QUIZ
 function loadQuiz(){
 
-    const quiz = document.getElementById("quiz");
+    const quiz =
+        document.getElementById("quiz");
 
     quiz.innerHTML = "";
 
@@ -169,22 +194,40 @@ function loadQuiz(){
             <h3>${index+1}. ${q.soal}</h3>
 
             <label>
-                <input type="radio" name="q${index}" value="A">
+                <input type="radio"
+                name="q${index}"
+                value="A">
+
                 ${q.opsiA}
-            </label><br><br>
+            </label>
+
+            <br><br>
 
             <label>
-                <input type="radio" name="q${index}" value="B">
+                <input type="radio"
+                name="q${index}"
+                value="B">
+
                 ${q.opsiB}
-            </label><br><br>
+            </label>
+
+            <br><br>
 
             <label>
-                <input type="radio" name="q${index}" value="C">
+                <input type="radio"
+                name="q${index}"
+                value="C">
+
                 ${q.opsiC}
-            </label><br><br>
+            </label>
+
+            <br><br>
 
             <label>
-                <input type="radio" name="q${index}" value="D">
+                <input type="radio"
+                name="q${index}"
+                value="D">
+
                 ${q.opsiD}
             </label>
 
@@ -203,14 +246,26 @@ function startTimer(){
 
     timerInterval = setInterval(()=>{
 
-        let minutes = Math.floor(time / 60);
-        let seconds = time % 60;
+        let minutes =
+            Math.floor(time / 60);
 
-        minutes = minutes < 10 ? "0"+minutes : minutes;
-        seconds = seconds < 10 ? "0"+seconds : seconds;
+        let seconds =
+            time % 60;
 
-        document.getElementById("timer").innerHTML =
-            `${minutes}:${seconds}`;
+        minutes =
+            minutes < 10
+            ? "0"+minutes
+            : minutes;
+
+        seconds =
+            seconds < 10
+            ? "0"+seconds
+            : seconds;
+
+        document
+        .getElementById("timer")
+        .innerHTML =
+        `${minutes}:${seconds}`;
 
         if(time <= 0){
 
@@ -233,71 +288,65 @@ function submitQuiz(){
 
     clearInterval(timerInterval);
 
-    const nama = document.getElementById("nama").value;
-    const kelas = document.getElementById("kelas").value;
+    const nama =
+        document.getElementById("nama").value;
+
+    const kelas =
+        document.getElementById("kelas").value;
 
     let benar = 0;
+
     let jawabanPeserta = [];
 
     questions.forEach((q,index)=>{
 
         const selected =
-            document.querySelector(`input[name="q${index}"]:checked`);
+            document.querySelector(
+            `input[name="q${index}"]:checked`
+            );
 
         let jawaban = "-";
 
         if(selected){
+
             jawaban = selected.value;
+
         }
 
         jawabanPeserta.push(jawaban);
 
-        if(jawaban == q.jawaban){
+        if(jawaban === q.jawaban){
+
             benar++;
+
         }
 
     });
 
     const nilai =
-        Math.round((benar / questions.length) * 100);
+        Math.round(
+        (benar / questions.length) * 100
+        );
 
-    document.getElementById("result").style.display = "block";
+    document
+    .getElementById("result")
+    .style.display = "block";
 
-    document.getElementById("result").innerHTML = `
+    document
+    .getElementById("result")
+    .innerHTML = `
 
         <h2>Hasil Ujian</h2>
 
-        <p>Nama: <b>${nama}</b></p>
+        <p>Nama: ${nama}</p>
 
-        <p>Kelas: <b>${kelas}</b></p>
+        <p>Kelas: ${kelas}</p>
 
-        <p>Benar: <b>${benar}</b></p>
+        <p>Benar: ${benar}</p>
 
-        <p>Nilai: <b>${nilai}</b></p>
+        <p>Nilai: ${nilai}</p>
 
     `;
-
-    // KIRIM KE GOOGLE SHEET
-
-    fetch("LINK_WEB_APP_SCRIPT",{
-
-        method:"POST",
-
-        headers:{
-            "Content-Type":"application/json"
-        },
-
-        body:JSON.stringify({
-
-            nama:nama,
-            kelas:kelas,
-            benar:benar,
-            nilai:nilai,
-            jawaban:jawabanPeserta.join(", ")
-
-        })
-
-    });
 
 }
 
