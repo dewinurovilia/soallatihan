@@ -347,7 +347,29 @@ function submitQuiz(){
         <p>Nilai: ${nilai}</p>
 
     `;
+// KIRIM KE GOOGLE SHEET
 
+fetch("https://script.google.com/macros/s/AKfycbw-nGJmINqbEszLpTHh0h0ckeDiaAMg56dyvZpjEtHDyUgvvQF2FjQ64lVLji7wAz2g/exec", {
+
+    method: "POST",
+
+    mode: "no-cors",
+
+    headers: {
+        "Content-Type": "application/json"
+    },
+
+    body: JSON.stringify({
+
+        nama: nama,
+        kelas: kelas,
+        benar: benar,
+        nilai: nilai,
+        jawaban: jawabanPeserta.join(", ")
+
+    })
+
+});
 }
 
 </script>
