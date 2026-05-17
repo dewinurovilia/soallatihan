@@ -147,26 +147,6 @@ Semester 2 • Soal HOTS
 
 <script>
 
-// ======================
-// TAMPILKAN DATA SISWA
-// ======================
-
-const nama =
-localStorage.getItem("namaSiswa")
-|| "Siswa";
-
-const kelas =
-localStorage.getItem("kelasSiswa")
-|| "Kelas";
-
-document.getElementById("namaSiswa")
-.innerHTML =
-"👤 " + nama;
-
-document.getElementById("kelasSiswa")
-.innerHTML =
-"🏫 " + kelas;
-
 
 // ======================
 // TAMPILKAN DATA SISWA
@@ -190,6 +170,8 @@ document.getElementById("kelasSiswa")
 // ======================
 // DATA SOAL
 // ======================
+
+const soalData = [
 
 const soalData = [
 
@@ -251,10 +233,159 @@ jawaban:"225"
 soal:"10. 0,75 jika diubah menjadi pecahan adalah...",
 pilihan:["1/2","2/3","3/4","4/5"],
 jawaban:"3/4"
+},
+
+{
+soal:"11. Hasil 45 + 55 adalah...",
+pilihan:["90","95","100","105"],
+jawaban:"100"
+},
+
+{
+soal:"12. 8 × 7 = ...",
+pilihan:["54","56","58","60"],
+jawaban:"56"
+},
+
+{
+soal:"13. Hasil 900 - 275 adalah...",
+pilihan:["525","625","725","825"],
+jawaban:"625"
+},
+
+{
+soal:"14. 1 meter = ... cm",
+pilihan:["10","100","1000","10000"],
+jawaban:"100"
+},
+
+{
+soal:"15. Pecahan 1/4 sama dengan...",
+pilihan:["0,25","0,5","0,75","1"],
+jawaban:"0,25"
+},
+
+{
+soal:"16. Volume balok p=5 l=4 t=3 adalah...",
+pilihan:["60","70","80","90"],
+jawaban:"60"
+},
+
+{
+soal:"17. Keliling persegi panjang 10 cm dan 5 cm adalah...",
+pilihan:["20","25","30","35"],
+jawaban:"30"
+},
+
+{
+soal:"18. Hasil dari 144 : 12 adalah...",
+pilihan:["10","11","12","13"],
+jawaban:"12"
+},
+
+{
+soal:"19. 25% dari 200 adalah...",
+pilihan:["25","50","75","100"],
+jawaban:"50"
+},
+
+{
+soal:"20. Hasil 6² adalah...",
+pilihan:["12","24","36","48"],
+jawaban:"36"
+},
+
+{
+soal:"21. 5/10 disederhanakan menjadi...",
+pilihan:["1/2","1/3","1/4","1/5"],
+jawaban:"1/2"
+},
+
+{
+soal:"22. Hasil 17 × 3 adalah...",
+pilihan:["41","51","61","71"],
+jawaban:"51"
+},
+
+{
+soal:"23. Bangun ruang yang memiliki 6 sisi adalah...",
+pilihan:["Tabung","Kerucut","Kubus","Bola"],
+jawaban:"Kubus"
+},
+
+{
+soal:"24. 0,5 × 20 = ...",
+pilihan:["5","10","15","20"],
+jawaban:"10"
+},
+
+{
+soal:"25. Hasil 1000 - 1 adalah...",
+pilihan:["998","999","1000","1001"],
+jawaban:"999"
+},
+
+{
+soal:"26. 7 × (5 + 3) = ...",
+pilihan:["40","48","56","64"],
+jawaban:"56"
+},
+
+{
+soal:"27. Hasil dari 64 : 8 adalah...",
+pilihan:["6","7","8","9"],
+jawaban:"8"
+},
+
+{
+soal:"28. Luas segitiga alas 10 cm tinggi 8 cm adalah...",
+pilihan:["20","30","40","50"],
+jawaban:"40"
+},
+
+{
+soal:"29. Hasil 13 × 5 adalah...",
+pilihan:["55","60","65","70"],
+jawaban:"65"
+},
+
+{
+soal:"30. 2 jam = ... menit",
+pilihan:["60","90","120","150"],
+jawaban:"120"
+},
+
+{
+soal:"31. Hasil 81 : 9 adalah...",
+pilihan:["7","8","9","10"],
+jawaban:"9"
+},
+
+{
+soal:"32. 3/5 dari 100 adalah...",
+pilihan:["30","40","50","60"],
+jawaban:"60"
+},
+
+{
+soal:"33. Hasil 250 + 250 adalah...",
+pilihan:["400","450","500","550"],
+jawaban:"500"
+},
+
+{
+soal:"34. Bangun datar tanpa sudut adalah...",
+pilihan:["Segitiga","Persegi","Lingkaran","Trapesium"],
+jawaban:"Lingkaran"
+},
+
+{
+soal:"35. Akar kuadrat dari 81 adalah...",
+pilihan:["7","8","9","10"],
+jawaban:"9"
 }
 
 ];
-
 
 
 // ======================
