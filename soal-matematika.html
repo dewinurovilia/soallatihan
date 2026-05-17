@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soal Matematika Kelas 5 SD</title>
+<title>Soal Matematika Kelas 5</title>
 
 <style>
 
@@ -31,7 +31,6 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
 h1{
 text-align:center;
 margin-bottom:10px;
-color:#1e293b;
 }
 
 .info{
@@ -48,15 +47,6 @@ margin-bottom:20px;
 text-align:center;
 }
 
-.infoSiswa h2{
-color:#1e3a8a;
-margin-bottom:8px;
-}
-
-.infoSiswa h3{
-color:#475569;
-}
-
 .soal{
 padding:20px;
 border:1px solid #cbd5e1;
@@ -66,7 +56,6 @@ margin-top:20px;
 
 .soal h3{
 margin-bottom:20px;
-color:#1e293b;
 line-height:1.5;
 }
 
@@ -77,11 +66,6 @@ background:#f8fafc;
 border-radius:10px;
 margin-bottom:12px;
 cursor:pointer;
-transition:0.3s;
-}
-
-label:hover{
-background:#dbeafe;
 }
 
 button{
@@ -94,10 +78,6 @@ border-radius:12px;
 font-size:16px;
 cursor:pointer;
 margin-top:20px;
-}
-
-button:hover{
-background:#1d4ed8;
 }
 
 .hasil{
@@ -116,10 +96,6 @@ margin:20px 0;
 background:#dc2626;
 }
 
-.ulang:hover{
-background:#b91c1c;
-}
-
 </style>
 </head>
 
@@ -127,10 +103,10 @@ background:#b91c1c;
 
 <div class="container">
 
-<h1>📘 UAS Matematika Kelas 5 SD</h1>
+<h1>📘 Matematika Kelas 5</h1>
 
 <div class="info">
-Semester 2 • Soal HOTS
+Semester 2 • 35 Soal
 </div>
 
 <div class="infoSiswa">
@@ -147,9 +123,8 @@ Semester 2 • Soal HOTS
 
 <script>
 
-
 // ======================
-// TAMPILKAN DATA SISWA
+// DATA SISWA
 // ======================
 
 const nama =
@@ -167,11 +142,12 @@ document.getElementById("namaSiswa")
 document.getElementById("kelasSiswa")
 .innerHTML =
 "🏫 " + kelas;
+
+
+
 // ======================
 // DATA SOAL
 // ======================
-
-const soalData = [
 
 const soalData = [
 
@@ -388,6 +364,7 @@ jawaban:"9"
 ];
 
 
+
 // ======================
 // QUIZ
 // ======================
@@ -557,7 +534,7 @@ Kerjakan Ulang
 
 
 // ======================
-// KIRIM GOOGLE SHEET
+// GOOGLE SHEET
 // ======================
 
 const data = {
@@ -565,6 +542,8 @@ const data = {
 nama:nama,
 
 kelas:kelas,
+
+mapel:"Matematika",
 
 nilai:nilai,
 
