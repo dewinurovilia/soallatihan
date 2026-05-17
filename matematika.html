@@ -6,11 +6,12 @@
 <title>Matematika SD</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
@@ -18,14 +19,14 @@ background:#f1f5f9;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
+min-height:100vh;
 padding:20px;
 }
 
 .container{
-background:white;
 width:100%;
-max-width:450px;
+max-width:500px;
+background:white;
 padding:35px;
 border-radius:20px;
 box-shadow:0 5px 20px rgba(0,0,0,0.15);
@@ -33,8 +34,8 @@ box-shadow:0 5px 20px rgba(0,0,0,0.15);
 
 h1{
 text-align:center;
-margin-bottom:10px;
 color:#1e293b;
+margin-bottom:10px;
 }
 
 p{
@@ -54,7 +55,8 @@ font-weight:bold;
 color:#334155;
 }
 
-input, select{
+input,
+select{
 width:100%;
 padding:14px;
 border:1px solid #cbd5e1;
@@ -78,18 +80,23 @@ border-radius:12px;
 font-size:16px;
 cursor:pointer;
 transition:0.3s;
+margin-top:10px;
 }
 
 button:hover{
 background:#1d4ed8;
 }
 
-.info{
-margin-top:20px;
-text-align:center;
+.keterangan{
+margin-top:25px;
+padding:15px;
+background:#eff6ff;
+border-radius:12px;
 font-size:14px;
-color:#64748b;
+color:#1e40af;
+line-height:1.6;
 }
+
 </style>
 </head>
 
@@ -98,54 +105,135 @@ color:#64748b;
 <div class="container">
 
 <h1>📘 Matematika SD</h1>
-<p>Silakan isi data terlebih dahulu</p>
+
+<p>
+Silakan isi data sebelum mengerjakan soal
+</p>
 
 <div class="input-group">
+
 <label>Nama Siswa</label>
-<input type="text" id="nama" placeholder="Masukkan nama">
+
+<input
+type="text"
+id="nama"
+placeholder="Masukkan nama lengkap">
+
 </div>
 
 <div class="input-group">
+
 <label>Pilih Kelas</label>
+
 <select id="kelas">
-<option value="">-- Pilih Kelas --</option>
-<option>Kelas 1</option>
-<option>Kelas 2</option>
-<option>Kelas 3</option>
-<option>Kelas 4</option>
-<option>Kelas 5</option>
-<option>Kelas 6</option>
+
+<option value="">
+-- Pilih Kelas --
+</option>
+
+<option>
+Kelas 1
+</option>
+
+<option>
+Kelas 2
+</option>
+
+<option>
+Kelas 3
+</option>
+
+<option>
+Kelas 4
+</option>
+
+<option selected>
+Kelas 5
+</option>
+
+<option>
+Kelas 6
+</option>
+
 </select>
+
 </div>
 
-<button onclick="mulaiBelajar()">Masuk Soal</button>
+<button onclick="mulaiBelajar()">
 
-<div class="info">
-<p>Aplikasi Soal SD Matematika</p>
+Mulai Soal
+
+</button>
+
+<div class="keterangan">
+
+📚 Materi:
+<br><br>
+
+✅ Pecahan<br>
+✅ Bangun Datar<br>
+✅ Volume Kubus & Balok<br>
+✅ FPB & KPK<br>
+✅ Persen<br>
+✅ Operasi Hitung<br>
+✅ Desimal<br>
+✅ Luas & Keliling<br>
+✅ Akar Kuadrat<br>
+
 </div>
 
 </div>
 
 <script>
+
 function mulaiBelajar(){
 
-const nama = document.getElementById("nama").value;
-const kelas = document.getElementById("kelas").value;
+const nama =
+document.getElementById("nama").value;
 
-if(nama === "" || kelas === ""){
-alert("Isi nama dan pilih kelas terlebih dahulu!");
-return;
-}
+const kelas =
+document.getElementById("kelas").value;
+
+if(
+nama === "" ||
+kelas === ""
+){
 
 alert(
-"Selamat belajar " + nama + "\n" +
+"Isi nama dan pilih kelas terlebih dahulu!"
+);
+
+return;
+
+}
+
+
+
+// =====================
+// SIMPAN DATA SISWA
+// =====================
+
+localStorage.setItem(
+"namaSiswa",
+nama
+);
+
+localStorage.setItem(
+"kelasSiswa",
 kelas
 );
 
-// nanti diarahkan ke soal
-window.location.href = "soal-matematika.html";
+
+
+// =====================
+// MASUK KE SOAL
+// =====================
+
+window.location.href =
+"soal-matematika.html";
 
 }
+
 </script>
 
 </body>
