@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UAS Matematika Kelas 5 SD Semester 2</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f1f5f9;
+padding:20px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+h1{
+text-align:center;
+margin-bottom:10px;
+color:#1e293b;
+}
+
+.info{
+text-align:center;
+margin-bottom:20px;
+color:#64748b;
+}
+
+.soal{
+margin-bottom:25px;
+padding:20px;
+border:1px solid #cbd5e1;
+border-radius:15px;
+}
+
+.soal h3{
+margin-bottom:15px;
+color:#1e293b;
+}
+
+label{
+display:block;
+padding:10px;
+margin-bottom:10px;
+background:#f8fafc;
+border-radius:10px;
+cursor:pointer;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+background:#2563eb;
+color:white;
+font-size:16px;
+border-radius:12px;
+cursor:pointer;
+margin-top:20px;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+.hasil{
+display:none;
+text-align:center;
+margin-top:30px;
+padding:25px;
+background:#f8fafc;
+border-radius:20px;
+}
+
+.nilai{
+font-size:50px;
+font-weight:bold;
+color:#2563eb;
+margin:20px 0;
+}
+
+.ulang{
+background:#dc2626;
+margin-top:15px;
+}
+
+.ulang:hover{
+background:#b91c1c;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📘 UAS Matematika Kelas 5 SD</h1>
+<div class="info">
+Semester 2 • 40 Soal Pilihan Ganda
+</div>
+
+<form id="quizForm"></form>
+
+<button onclick="koreksiSoal()">
+Selesai & Lihat Nilai
+</button>
+
+<div class="hasil" id="hasilBox">
+<h2>Hasil Nilai</h2>
+
+<div class="nilai" id="nilai">
+0
+</div>
+
+<p id="keterangan"></p>
+
+<button class="ulang" id="ulangBtn" onclick="ulangSoal()">
+Kerjakan Ulang
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const soalData = [
+
+{
+soal:"1. Hasil dari 2/5 + 1/5 adalah...",
+pilihan:["1/5","2/5","3/5","4/5"],
+jawaban:"3/5"
+},
+
+{
+soal:"2. 3/4 × 8 = ...",
+pilihan:["4","5","6","7"],
+jawaban:"6"
+},
+
+{
+soal:"3. Volume kubus dengan sisi 5 cm adalah...",
+pilihan:["25","50","100","125"],
+jawaban:"125"
+},
+
+{
+soal:"4. Luas persegi panjang panjang 12 cm dan lebar 8 cm adalah...",
+pilihan:["20","48","96","120"],
+jawaban:"96"
+},
+
+{
+soal:"5. Hasil 25 × 12 adalah...",
+pilihan:["250","275","300","325"],
+jawaban:"300"
+},
+
+{
+soal:"6. 750 : 25 = ...",
+pilihan:["25","30","35","40"],
+jawaban:"30"
+},
+
+{
+soal:"7. Pecahan senilai dari 1/2 adalah...",
+pilihan:["2/3","2/4","3/5","4/5"],
+jawaban:"2/4"
+},
+
+{
+soal:"8. Keliling persegi sisi 9 cm adalah...",
+pilihan:["18","27","36","45"],
+jawaban:"36"
+},
+
+{
+soal:"9. Hasil dari 15² adalah...",
+pilihan:["125","200","225","250"],
+jawaban:"225"
+},
+
+{
+soal:"10. 0,75 jika diubah menjadi pecahan adalah...",
+pilihan:["1/2","2/3","3/4","4/5"],
+jawaban:"3/4"
+},
+
+{
+soal:"11. Bangun ruang yang memiliki 6 sisi sama adalah...",
+pilihan:["Balok","Kubus","Tabung","Kerucut"],
+jawaban:"Kubus"
+},
+
+{
+soal:"12. Hasil 1,5 + 2,5 adalah...",
+pilihan:["3","4","5","6"],
+jawaban:"4"
+},
+
+{
+soal:"13. 40% dari 200 adalah...",
+pilihan:["40","60","80","100"],
+jawaban:"80"
+},
+
+{
+soal:"14. FPB dari 12 dan 18 adalah...",
+pilihan:["2","3","6","9"],
+jawaban:"6"
+},
+
+{
+soal:"15. KPK dari 6 dan 8 adalah...",
+pilihan:["12","18","24","48"],
+jawaban:"24"
+},
+
+{
+soal:"16. Hasil 7 × 8 - 10 adalah...",
+pilihan:["36","46","56","66"],
+jawaban:"46"
+},
+
+{
+soal:"17. 2 jam 30 menit = ... menit",
+pilihan:["120","130","140","150"],
+jawaban:"150"
+},
+
+{
+soal:"18. Luas segitiga alas 10 cm dan tinggi 8 cm adalah...",
+pilihan:["20","30","40","50"],
+jawaban:"40"
+},
+
+{
+soal:"19. 5/8 + 2/8 = ...",
+pilihan:["5/16","6/8","7/8","8/8"],
+jawaban:"7/8"
+},
+
+{
+soal:"20. Hasil dari 9 × 12 adalah...",
+pilihan:["96","98","108","118"],
+jawaban:"108"
+},
+
+{
+soal:"21. 3000 ml = ... liter",
+pilihan:["1","2","3","4"],
+jawaban:"3"
+},
+
+{
+soal:"22. Volume balok p=10 l=5 t=4 adalah...",
+pilihan:["100","150","200","250"],
+jawaban:"200"
+},
+
+{
+soal:"23. Hasil 45% dari 400 adalah...",
+pilihan:["120","150","180","200"],
+jawaban:"180"
+},
+
+{
+soal:"24. Pecahan terbesar adalah...",
+pilihan:["1/2","2/3","3/4","4/5"],
+jawaban:"4/5"
+},
+
+{
+soal:"25. 125 × 4 = ...",
+pilihan:["250","375","500","625"],
+jawaban:"500"
+},
+
+{
+soal:"26. 5² + 3² = ...",
+pilihan:["25","30","34","40"],
+jawaban:"34"
+},
+
+{
+soal:"27. Hasil 900 : 30 adalah...",
+pilihan:["20","25","30","35"],
+jawaban:"30"
+},
+
+{
+soal:"28. 2,4 + 1,6 = ...",
+pilihan:["3","4","5","6"],
+jawaban:"4"
+},
+
+{
+soal:"29. Keliling segitiga sisi 7 cm, 8 cm, dan 9 cm adalah...",
+pilihan:["21","22","23","24"],
+jawaban:"24"
+},
+
+{
+soal:"30. Hasil dari 100 - 25% × 100 adalah...",
+pilihan:["25","50","75","100"],
+jawaban:"75"
+},
+
+{
+soal:"31. Akar kuadrat dari 144 adalah...",
+pilihan:["10","11","12","13"],
+jawaban:"12"
+},
+
+{
+soal:"32. 1/4 dari 200 adalah...",
+pilihan:["25","50","75","100"],
+jawaban:"50"
+},
+
+{
+soal:"33. 6 × (8 + 2) = ...",
+pilihan:["48","50","60","70"],
+jawaban:"60"
+},
+
+{
+soal:"34. Hasil 3/5 dari 100 adalah...",
+pilihan:["40","50","60","70"],
+jawaban:"60"
+},
+
+{
+soal:"35. Sudut siku-siku besarnya...",
+pilihan:["45°","60°","90°","180°"],
+jawaban:"90°"
+},
+
+{
+soal:"36. 0,5 × 20 = ...",
+pilihan:["5","10","15","20"],
+jawaban:"10"
+},
+
+{
+soal:"37. Hasil dari 18 × 5 adalah...",
+pilihan:["80","85","90","95"],
+jawaban:"90"
+},
+
+{
+soal:"38. Luas lingkaran jari-jari 7 cm adalah...",
+pilihan:["154","144","120","100"],
+jawaban:"154"
+},
+
+{
+soal:"39. 4/10 disederhanakan menjadi...",
+pilihan:["1/2","2/5","3/5","4/5"],
+jawaban:"2/5"
+},
+
+{
+soal:"40. 1000 - 275 = ...",
+pilihan:["625","725","825","925"],
+jawaban:"725"
+}
+
+];
+
+const quizForm = document.getElementById("quizForm");
+
+soalData.forEach((data,index)=>{
+
+let html = `
+<div class="soal">
+<h3>${data.soal}</h3>
+`;
+
+data.pilihan.forEach(p=>{
+
+html += `
+<label>
+<input type="radio" name="soal${index}" value="${p}">
+${p}
+</label>
+`;
+
+});
+
+html += `</div>`;
+
+quizForm.innerHTML += html;
+
+});
+
+async function koreksiSoal(){
+
+let benar = 0;
+
+soalData.forEach((data,index)=>{
+
+const jawaban =
+document.querySelector(`input[name="soal${index}"]:checked`);
+
+if(jawaban && jawaban.value === data.jawaban){
+benar++;
+}
+
+});
+
+const nilai =
+Math.round((benar / soalData.length) * 100);
+
+document.getElementById("hasilBox").style.display = "block";
+
+document.getElementById("nilai").innerHTML = nilai;
+
+if(nilai >= 70){
+
+document.getElementById("keterangan").innerHTML =
+"🎉 Selamat kamu lulus";
+
+document.getElementById("ulangBtn").style.display = "none";
+
+}else{
+
+document.getElementById("keterangan").innerHTML =
+"❌ Nilai kurang dari 70, silakan ulangi";
+
+document.getElementById("ulangBtn").style.display = "block";
+
+}
+
+window.scrollTo(0,document.body.scrollHeight);
+
+
+
+// ===========================
+// KIRIM KE GOOGLE SHEET
+// ===========================
+
+const data = {
+
+nama:
+localStorage.getItem("namaSiswa") || "Tidak Ada",
+
+kelas:
+localStorage.getItem("kelasSiswa") || "Tidak Ada",
+
+nilai:nilai,
+
+benar:benar,
+
+tanggal:new Date().toLocaleString()
+
+};
+
+fetch("LINK_WEB_APP_SCRIPT",{
+
+method:"POST",
+
+body:JSON.stringify(data)
+
+});
+
+}
+
+function ulangSoal(){
+
+location.reload();
+
+}
+
+</script>
+
+</body>
+</html>
