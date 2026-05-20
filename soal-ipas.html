@@ -143,62 +143,260 @@ document.getElementById("kelasSiswa")
 
 const soalData = [
 
+<script>
+const soal = [
 {
-soal:"1. Planet yang kita tinggali adalah...",
-pilihan:["Mars","Venus","Bumi","Jupiter"],
-jawaban:"Bumi"
+pertanyaan: "1. Perubahan wujud benda dari cair menjadi gas disebut ....",
+pilihan: ["A. Membeku","B. Menguap","C. Mencair","D. Mengembun"],
+jawaban: "B"
 },
-
 {
-soal:"2. Sumber energi utama di bumi adalah...",
-pilihan:["Angin","Matahari","Air","Batu"],
-jawaban:"Matahari"
+pertanyaan: "2. Hewan yang berkembang biak dengan cara bertelur disebut ....",
+pilihan: ["A. Vivipar","B. Ovipar","C. Ovovivipar","D. Membelah diri"],
+jawaban: "B"
 },
-
 {
-soal:"3. Hewan pemakan tumbuhan disebut...",
-pilihan:["Karnivora","Herbivora","Omnivora","Reptil"],
-jawaban:"Herbivora"
+pertanyaan: "3. Planet yang dikenal sebagai planet merah adalah ....",
+pilihan: ["A. Venus","B. Jupiter","C. Mars","D. Saturnus"],
+jawaban: "C"
 },
-
 {
-soal:"4. Bagian tumbuhan yang menyerap air adalah...",
-pilihan:["Daun","Batang","Akar","Bunga"],
-jawaban:"Akar"
+pertanyaan: "4. Gaya yang menyebabkan benda jatuh ke bawah adalah gaya ....",
+pilihan: ["A. Magnet","B. Pegas","C. Gesek","D. Gravitasi"],
+jawaban: "D"
 },
-
 {
-soal:"5. Perubahan air menjadi uap disebut...",
-pilihan:["Mencair","Menguap","Membeku","Mengembun"],
-jawaban:"Menguap"
+pertanyaan: "5. Organ pernapasan pada manusia adalah ....",
+pilihan: ["A. Jantung","B. Paru-paru","C. Ginjal","D. Lambung"],
+jawaban: "B"
+},
+{
+pertanyaan: "6. Tumbuhan hijau membuat makanan sendiri melalui proses ....",
+pilihan: ["A. Respirasi","B. Fotosintesis","C. Adaptasi","D. Reproduksi"],
+jawaban: "B"
+},
+{
+pertanyaan: "7. Sumber energi utama bagi bumi adalah ....",
+pilihan: ["A. Bulan","B. Air","C. Matahari","D. Angin"],
+jawaban: "C"
+},
+{
+pertanyaan: "8. Contoh benda padat adalah ....",
+pilihan: ["A. Air","B. Minyak","C. Batu","D. Udara"],
+jawaban: "C"
+},
+{
+pertanyaan: "9. Alat untuk mengukur suhu adalah ....",
+pilihan: ["A. Barometer","B. Termometer","C. Speedometer","D. Higrometer"],
+jawaban: "B"
+},
+{
+pertanyaan: "10. Bunyi dapat merambat melalui ....",
+pilihan: ["A. Zat padat","B. Zat cair","C. Zat gas","D. Semua benar"],
+jawaban: "D"
+},
+{
+pertanyaan: "11. Bagian tumbuhan yang berfungsi menyerap air adalah ....",
+pilihan: ["A. Daun","B. Bunga","C. Akar","D. Batang"],
+jawaban: "C"
+},
+{
+pertanyaan: "12. Energi listrik dapat diubah menjadi energi gerak pada ....",
+pilihan: ["A. Setrika","B. Kipas angin","C. Lampu","D. Kompor"],
+jawaban: "B"
+},
+{
+pertanyaan: "13. Proses perubahan air menjadi es disebut ....",
+pilihan: ["A. Menguap","B. Membeku","C. Mengembun","D. Mencair"],
+jawaban: "B"
+},
+{
+pertanyaan: "14. Contoh hewan herbivora adalah ....",
+pilihan: ["A. Harimau","B. Sapi","C. Elang","D. Buaya"],
+jawaban: "B"
+},
+{
+pertanyaan: "15. Planet terbesar dalam tata surya adalah ....",
+pilihan: ["A. Bumi","B. Mars","C. Jupiter","D. Uranus"],
+jawaban: "C"
+},
+{
+pertanyaan: "16. Darah dipompa ke seluruh tubuh oleh ....",
+pilihan: ["A. Paru-paru","B. Otak","C. Jantung","D. Ginjal"],
+jawaban: "C"
+},
+{
+pertanyaan: "17. Benda yang dapat ditarik magnet disebut benda ....",
+pilihan: ["A. Elastis","B. Magnetis","C. Cair","D. Lunak"],
+jawaban: "B"
+},
+{
+pertanyaan: "18. Contoh sumber daya alam yang dapat diperbarui adalah ....",
+pilihan: ["A. Batu bara","B. Minyak bumi","C. Air","D. Emas"],
+jawaban: "C"
+},
+{
+pertanyaan: "19. Fungsi daun pada tumbuhan adalah ....",
+pilihan: ["A. Menyerap air","B. Menopang tumbuhan","C. Tempat fotosintesis","D. Menyimpan cadangan makanan"],
+jawaban: "C"
+},
+{
+pertanyaan: "20. Gerhana matahari terjadi ketika ....",
+pilihan: ["A. Bulan di antara bumi dan matahari","B. Bumi di antara bulan dan matahari","C. Matahari di antara bumi dan bulan","D. Bumi menjauhi matahari"],
+jawaban: "A"
+},
+{
+pertanyaan: "21. Hewan yang hidup di dua alam disebut ....",
+pilihan: ["A. Mamalia","B. Reptil","C. Amfibi","D. Aves"],
+jawaban: "C"
+},
+{
+pertanyaan: "22. Energi yang dimiliki benda bergerak disebut energi ....",
+pilihan: ["A. Panas","B. Kinetik","C. Listrik","D. Cahaya"],
+jawaban: "B"
+},
+{
+pertanyaan: "23. Contoh perubahan kimia adalah ....",
+pilihan: ["A. Air membeku","B. Kayu dibakar","C. Es mencair","D. Gula larut"],
+jawaban: "B"
+},
+{
+pertanyaan: "24. Lapisan atmosfer tempat terjadinya cuaca adalah ....",
+pilihan: ["A. Troposfer","B. Stratosfer","C. Mesosfer","D. Termosfer"],
+jawaban: "A"
+},
+{
+pertanyaan: "25. Alat indera untuk mengecap rasa adalah ....",
+pilihan: ["A. Mata","B. Hidung","C. Lidah","D. Kulit"],
+jawaban: "C"
+},
+{
+pertanyaan: "26. Contoh simbiosis mutualisme adalah ....",
+pilihan: ["A. Benalu dan pohon","B. Kerbau dan burung jalak","C. Kucing dan tikus","D. Singa dan rusa"],
+jawaban: "B"
+},
+{
+pertanyaan: "27. Air hujan berasal dari proses ....",
+pilihan: ["A. Kondensasi","B. Evaporasi","C. Presipitasi","D. Semua benar"],
+jawaban: "D"
+},
+{
+pertanyaan: "28. Tulang berfungsi untuk ....",
+pilihan: ["A. Memompa darah","B. Melindungi tubuh","C. Mencerna makanan","D. Mengedarkan oksigen"],
+jawaban: "B"
+},
+{
+pertanyaan: "29. Contoh energi alternatif adalah ....",
+pilihan: ["A. Batu bara","B. Minyak bumi","C. Energi surya","D. Gas alam"],
+jawaban: "C"
+},
+{
+pertanyaan: "30. Planet tempat manusia hidup adalah ....",
+pilihan: ["A. Venus","B. Mars","C. Bumi","D. Saturnus"],
+jawaban: "C"
+},
+{
+pertanyaan: "31. Gaya gesek terjadi ketika ....",
+pilihan: ["A. Dua benda bersentuhan","B. Ada cahaya","C. Ada magnet","D. Ada listrik"],
+jawaban: "A"
+},
+{
+pertanyaan: "32. Hewan pemakan daging disebut ....",
+pilihan: ["A. Herbivora","B. Karnivora","C. Omnivora","D. Insektivora"],
+jawaban: "B"
+},
+{
+pertanyaan: "33. Organ pencernaan pertama pada manusia adalah ....",
+pilihan: ["A. Lambung","B. Usus","C. Mulut","D. Kerongkongan"],
+jawaban: "C"
+},
+{
+pertanyaan: "34. Cahaya matahari dapat dimanfaatkan untuk ....",
+pilihan: ["A. Fotosintesis","B. Menjemur pakaian","C. Pembangkit listrik","D. Semua benar"],
+jawaban: "D"
+},
+{
+pertanyaan: "35. Proses tumbuhan mengeluarkan uap air disebut ....",
+pilihan: ["A. Fotosintesis","B. Respirasi","C. Transpirasi","D. Adaptasi"],
+jawaban: "C"
+},
+{
+pertanyaan: "36. Contoh benda konduktor adalah ....",
+pilihan: ["A. Kayu","B. Plastik","C. Besi","D. Karet"],
+jawaban: "C"
+},
+{
+pertanyaan: "37. Bagian bumi yang tertutup air disebut ....",
+pilihan: ["A. Atmosfer","B. Hidrosfer","C. Litosfer","D. Biosfer"],
+jawaban: "B"
+},
+{
+pertanyaan: "38. Kegiatan manusia yang dapat menyebabkan banjir adalah ....",
+pilihan: ["A. Menanam pohon","B. Membuang sampah sembarangan","C. Membersihkan sungai","D. Membuat taman"],
+jawaban: "B"
+},
+{
+pertanyaan: "39. Fungsi rangka pada manusia adalah ....",
+pilihan: ["A. Membentuk tubuh","B. Melindungi organ","C. Tempat melekat otot","D. Semua benar"],
+jawaban: "D"
+},
+{
+pertanyaan: "40. Hewan yang mengalami metamorfosis sempurna adalah ....",
+pilihan: ["A. Belalang","B. Kupu-kupu","C. Kecoa","D. Capung"],
+jawaban: "B"
+},
+{
+pertanyaan: "41. Zat yang dibutuhkan tubuh untuk pertumbuhan adalah ....",
+pilihan: ["A. Protein","B. Air","C. Vitamin","D. Mineral"],
+jawaban: "A"
+},
+{
+pertanyaan: "42. Gempa bumi dapat disebabkan oleh ....",
+pilihan: ["A. Pergerakan lempeng bumi","B. Hujan deras","C. Angin kencang","D. Sinar matahari"],
+jawaban: "A"
+},
+{
+pertanyaan: "43. Contoh adaptasi hewan adalah ....",
+pilihan: ["A. Bebek berkaki berselaput","B. Pohon menggugurkan daun","C. Air menguap","D. Batu mengeras"],
+jawaban: "A"
+},
+{
+pertanyaan: "44. Satuan gaya adalah ....",
+pilihan: ["A. Newton","B. Watt","C. Volt","D. Liter"],
+jawaban: "A"
+},
+{
+pertanyaan: "45. Perubahan energi pada lampu adalah ....",
+pilihan: ["A. Gerak menjadi panas","B. Listrik menjadi cahaya","C. Kimia menjadi gerak","D. Panas menjadi listrik"],
+jawaban: "B"
+},
+{
+pertanyaan: "46. Pencemaran udara dapat disebabkan oleh ....",
+pilihan: ["A. Asap kendaraan","B. Menanam pohon","C. Membersihkan lingkungan","D. Mendaur ulang"],
+jawaban: "A"
+},
+{
+pertanyaan: "47. Fungsi akar serabut pada tumbuhan adalah ....",
+pilihan: ["A. Menyimpan makanan","B. Menopang tumbuhan","C. Menyerap air","D. Semua benar"],
+jawaban: "C"
+},
+{
+pertanyaan: "48. Planet yang memiliki cincin paling jelas adalah ....",
+pilihan: ["A. Venus","B. Saturnus","C. Mars","D. Merkurius"],
+jawaban: "B"
+},
+{
+pertanyaan: "49. Bunyi pantul yang terdengar jelas disebut ....",
+pilihan: ["A. Gaung","B. Gema","C. Resonansi","D. Getaran"],
+jawaban: "B"
+},
+{
+pertanyaan: "50. Upaya menjaga kelestarian lingkungan adalah ....",
+pilihan: ["A. Menebang pohon liar","B. Membakar sampah","C. Reboisasi","D. Membuang limbah ke sungai"],
+jawaban: "C"
 }
-
 ];
-
-
-
-// ======================
-// TAMBAH SOAL OTOMATIS
-// ======================
-
-for(let i=6;i<=50;i++){
-
-soalData.push({
-
-soal:i + ". Lingkungan yang bersih harus selalu...",
-
-pilihan:[
-"Dijaga",
-"Dikotori",
-"Dibiarkan",
-"Dirusak"
-],
-
-jawaban:"Dijaga"
-
-});
-
-}
+</script>
 
 
 
