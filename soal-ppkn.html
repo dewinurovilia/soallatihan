@@ -459,6 +459,11 @@ document.getElementById("quizForm");
 
 tampilkanSoal();
 
+
+// ======================
+// TAMPILKAN SOAL
+// ======================
+
 function tampilkanSoal(){
 
 const data = soalData[nomorSoal];
@@ -468,9 +473,7 @@ quizForm.innerHTML = `
 <div class="soal">
 
 <h3>
-
-${data.soal}
-
+${data.pertanyaan}
 </h3>
 
 ${data.pilihan.map(p => `
@@ -480,7 +483,7 @@ ${data.pilihan.map(p => `
 <input
 type="radio"
 name="jawaban"
-value="${p}">
+value="${p.charAt(0)}">
 
 ${p}
 
@@ -488,10 +491,8 @@ ${p}
 
 `).join("")}
 
-<button onclick="lanjutSoal()">
-
+<button onclick="lanjutSoal(event)">
 Lanjut
-
 </button>
 
 </div>
@@ -501,8 +502,11 @@ Lanjut
 }
 
 
+// ======================
+// LANJUT SOAL
+// ======================
 
-function lanjutSoal(){
+function lanjutSoal(event){
 
 event.preventDefault();
 
@@ -533,8 +537,7 @@ benar++;
 nomorSoal++;
 
 if(
-nomorSoal <
-soalData.length
+nomorSoal < soalData.length
 ){
 
 tampilkanSoal();
@@ -548,6 +551,9 @@ selesaiQuiz();
 }
 
 
+// ======================
+// SELESAI QUIZ
+// ======================
 
 function selesaiQuiz(){
 
@@ -565,46 +571,33 @@ Quiz Selesai
 </h2>
 
 <div class="nilai">
-
 ${nilai}
-
 </div>
 
 <p>
 
 ${nilai >= 70
-
 ? "🎉 Selamat kamu lulus"
-
 : "❌ Nilai kurang dari 70"}
 
 </p>
 
 ${
 nilai < 70
-
 ?
-
 `
-
 <button
 class="ulang"
 onclick="location.reload()">
-
 Kerjakan Ulang
-
 </button>
-
 `
-
 : ""
-
 }
 
 </div>
 
 `;
-
 
 
 // ======================
@@ -614,18 +607,13 @@ Kerjakan Ulang
 const data = {
 
 nama:nama,
-
 kelas:kelas,
-
 mapel:"PPKN",
-
 nilai:nilai,
-
 benar:benar,
 
 tanggal:
-new Date()
-.toLocaleString()
+new Date().toLocaleString()
 
 };
 
