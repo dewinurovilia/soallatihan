@@ -140,11 +140,8 @@ document.getElementById("kelasSiswa")
 "🏫 " + kelas;
 
 
-
-const soalData = [
-
 <script>
-const soal = [
+const soalData = [
 {
 pertanyaan: "1. Perubahan wujud benda dari cair menjadi gas disebut ....",
 pilihan: ["A. Membeku","B. Menguap","C. Mencair","D. Mengembun"],
@@ -396,10 +393,6 @@ pilihan: ["A. Menebang pohon liar","B. Membakar sampah","C. Reboisasi","D. Membu
 jawaban: "C"
 }
 ];
-</script>
-
-
-
 // ======================
 // QUIZ
 // ======================
@@ -421,9 +414,7 @@ quizForm.innerHTML = `
 <div class="soal">
 
 <h3>
-
-${data.soal}
-
+${data.pertanyaan}
 </h3>
 
 ${data.pilihan.map(p => `
@@ -433,7 +424,7 @@ ${data.pilihan.map(p => `
 <input
 type="radio"
 name="jawaban"
-value="${p}">
+value="${p.charAt(0)}">
 
 ${p}
 
@@ -441,10 +432,8 @@ ${p}
 
 `).join("")}
 
-<button onclick="lanjutSoal()">
-
+<button onclick="lanjutSoal(event)">
 Lanjut
-
 </button>
 
 </div>
@@ -455,7 +444,7 @@ Lanjut
 
 
 
-function lanjutSoal(){
+function lanjutSoal(event){
 
 event.preventDefault();
 
@@ -518,9 +507,7 @@ Quiz Selesai
 </h2>
 
 <div class="nilai">
-
 ${nilai}
-
 </div>
 
 <p>
@@ -533,30 +520,11 @@ ${nilai >= 70
 
 </p>
 
-${
-nilai < 70
-
-?
-
-`
-
-<button
-class="ulang"
-onclick="location.reload()">
-
-Kerjakan Ulang
-
-</button>
-
-`
-
-: ""
-
-}
-
 </div>
 
 `;
+
+}
 
 
 
