@@ -140,7 +140,6 @@ document.getElementById("kelasSiswa")
 "🏫 " + kelas;
 
 
-<script>
 const soalData = [
 {
 pertanyaan: "1. Perubahan wujud benda dari cair menjadi gas disebut ....",
@@ -393,6 +392,7 @@ pilihan: ["A. Menebang pohon liar","B. Membakar sampah","C. Reboisasi","D. Membu
 jawaban: "C"
 }
 ];
+
 // ======================
 // QUIZ
 // ======================
@@ -404,6 +404,12 @@ const quizForm =
 document.getElementById("quizForm");
 
 tampilkanSoal();
+
+
+
+// ======================
+// TAMPILKAN SOAL
+// ======================
 
 function tampilkanSoal(){
 
@@ -444,6 +450,10 @@ Lanjut
 
 
 
+// ======================
+// LANJUT SOAL
+// ======================
+
 function lanjutSoal(event){
 
 event.preventDefault();
@@ -475,8 +485,7 @@ benar++;
 nomorSoal++;
 
 if(
-nomorSoal <
-soalData.length
+nomorSoal < soalData.length
 ){
 
 tampilkanSoal();
@@ -490,6 +499,10 @@ selesaiQuiz();
 }
 
 
+
+// ======================
+// SELESAI QUIZ
+// ======================
 
 function selesaiQuiz(){
 
@@ -513,18 +526,27 @@ ${nilai}
 <p>
 
 ${nilai >= 70
-
 ? "🎉 Selamat kamu lulus"
-
 : "❌ Nilai kurang dari 70"}
 
 </p>
 
+${
+nilai < 70
+?
+`
+<button
+class="ulang"
+onclick="location.reload()">
+Kerjakan Ulang
+</button>
+`
+: ""
+}
+
 </div>
 
 `;
-
-}
 
 
 
@@ -535,13 +557,9 @@ ${nilai >= 70
 const data = {
 
 nama:nama,
-
 kelas:kelas,
-
 mapel:"IPAS",
-
 nilai:nilai,
-
 benar:benar,
 
 tanggal:
@@ -549,6 +567,8 @@ new Date()
 .toLocaleString()
 
 };
+
+
 
 fetch(
 "https://script.google.com/macros/s/AKfycbwfOsYej4iHwZoYgFLOIoqew2KisHcRtWVVO_WaHZGfDAGWCrSvpNSgFGH2JAcbOKo/exec",
@@ -565,6 +585,3 @@ body:JSON.stringify(data)
 }
 
 </script>
-
-</body>
-</html>
